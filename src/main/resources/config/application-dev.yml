@@ -37,9 +37,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/TaskUnite?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: root
-    password:
+    url: jdbc:mysql://34.87.113.161:3306/taskunite?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: quanganh9x
+    password: quanganh9x
     hikari:
       poolName: Hikari
       auto-commit: false
