@@ -1,0 +1,21 @@
+version: '2'
+services:
+  taskunite-app:
+    image: taskunite
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://taskunite-mysql:3306/taskunite?useUnicode=true&characterEncoding=utf8&useSSL=false
+      - JHIPSTER_CACHE_MEMCACHED_SERVERS=taskunite-memcached:11211
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+    ports:
+      - 8080:8080
+  taskunite-mysql:
+    extends:
+      file: mysql.yml
+      service: taskunite-mysql
+  taskunite-memcached:
+    extends:
+      file: memcached.yml
+      service: taskunite-memcached

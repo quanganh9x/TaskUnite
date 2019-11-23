@@ -1,0 +1,6 @@
+version: '2'
+services:
+  taskunite-memcached:
+    image: memcached:1.5.19-alpine
+    ports:
+      - '11211:11211'
