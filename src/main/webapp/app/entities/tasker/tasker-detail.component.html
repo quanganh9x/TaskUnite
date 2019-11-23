@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tasker">
+            <h2><span jhiTranslate="taskUniteApp.tasker.detail.title">Tasker</span> {{tasker.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="taskUniteApp.tasker.price">Price</span></dt>
+                <dd>
+                    <span>{{tasker.price}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.tasker.status">Status</span></dt>
+                <dd>
+                    <span>{{tasker.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.tasker.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{tasker.createdAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.tasker.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{tasker.updatedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.tasker.deletedAt">Deleted At</span></dt>
+                <dd>
+                    <span>{{tasker.deletedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.tasker.user">User</span></dt>
+                <dd>
+                    <div *ngIf="tasker.userId">
+                        <a [routerLink]="['/user-information', tasker.userId, 'view']">{{tasker.userId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.tasker.taskCategories">Task Categories</span></dt>
+                <dd>
+                    <span *ngFor="let taskCategories of tasker.taskCategories; let last = last">
+                        <a [routerLink]="['/task-category', taskCategories?.id, 'view' ]">{{taskCategories.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tasker', tasker.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

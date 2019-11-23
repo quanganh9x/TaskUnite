@@ -1,0 +1,26 @@
+{
+  "taskUniteApp": {
+    "paymentInformation": {
+      "home": {
+        "title": "Payment Informations",
+        "createLabel": "Thêm mới một Payment Information",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Payment Information",
+        "notFound": "No Payment Informations found"
+      },
+      "created": "Một Payment Information mới được tạo với định danh {{ param }}",
+      "updated": "Một Payment Information cập nhật với định danh {{ param }}",
+      "deleted": "Một Payment Information đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Payment Information {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Information"
+      },
+      "balance": "Balance",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At",
+      "user": "User"
+    }
+  }
+}

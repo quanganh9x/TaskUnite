@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="taskUniteApp.statistic.home.title">Statistics</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-statistic" [routerLink]="['/statistic/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="taskUniteApp.statistic.home.createLabel">
+            Create a new Statistic
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="statistics?.length === 0">
+        <span jhiTranslate="taskUniteApp.statistic.home.notFound">No statistics found</span>
+    </div>
+    <div class="table-responsive" *ngIf="statistics?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="level"><span jhiTranslate="taskUniteApp.statistic.level">Level</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="experience"><span jhiTranslate="taskUniteApp.statistic.experience">Experience</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="completedTask"><span jhiTranslate="taskUniteApp.statistic.completedTask">Completed Task</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="incompletedTask"><span jhiTranslate="taskUniteApp.statistic.incompletedTask">Incompleted Task</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="rating"><span jhiTranslate="taskUniteApp.statistic.rating">Rating</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="ranking"><span jhiTranslate="taskUniteApp.statistic.ranking">Ranking</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="bonus"><span jhiTranslate="taskUniteApp.statistic.bonus">Bonus</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdAt"><span jhiTranslate="taskUniteApp.statistic.createdAt">Created At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="updatedAt"><span jhiTranslate="taskUniteApp.statistic.updatedAt">Updated At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="deletedAt"><span jhiTranslate="taskUniteApp.statistic.deletedAt">Deleted At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="userId"><span jhiTranslate="taskUniteApp.statistic.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let statistic of statistics ;trackBy: trackId">
+                <td><a [routerLink]="['/statistic', statistic.id, 'view' ]">{{statistic.id}}</a></td>
+                <td>{{statistic.level}}</td>
+                <td>{{statistic.experience}}</td>
+                <td>{{statistic.completedTask}}</td>
+                <td>{{statistic.incompletedTask}}</td>
+                <td>{{statistic.rating}}</td>
+                <td>{{statistic.ranking}}</td>
+                <td>{{statistic.bonus}}</td>
+                <td>{{statistic.createdAt | date:'mediumDate'}}</td>
+                <td>{{statistic.updatedAt | date:'mediumDate'}}</td>
+                <td>{{statistic.deletedAt | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="statistic.userId">
+                        <a [routerLink]="['/user-information', statistic.userId , 'view' ]" >{{statistic.userId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/statistic', statistic.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/statistic', statistic.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(statistic)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="statistics?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="master">
+            <h2><span jhiTranslate="taskUniteApp.master.detail.title">Master</span> {{master.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="taskUniteApp.master.status">Status</span></dt>
+                <dd>
+                    <span>{{master.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.master.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{master.createdAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.master.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{master.updatedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.master.deletedAt">Deleted At</span></dt>
+                <dd>
+                    <span>{{master.deletedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.master.user">User</span></dt>
+                <dd>
+                    <div *ngIf="master.userId">
+                        <a [routerLink]="['/user-information', master.userId, 'view']">{{master.userId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/master', master.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

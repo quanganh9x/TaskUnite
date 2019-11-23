@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userInformation">
+            <h2><span jhiTranslate="taskUniteApp.userInformation.detail.title">User Information</span> {{userInformation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="taskUniteApp.userInformation.address">Address</span></dt>
+                <dd>
+                    <span>{{userInformation.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.userInformation.phone">Phone</span></dt>
+                <dd>
+                    <span>{{userInformation.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.userInformation.status">Status</span></dt>
+                <dd>
+                    <span>{{userInformation.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.userInformation.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{userInformation.createdAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.userInformation.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{userInformation.updatedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.userInformation.deletedAt">Deleted At</span></dt>
+                <dd>
+                    <span>{{userInformation.deletedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.userInformation.user">User</span></dt>
+                <dd>
+                    {{userInformation.userId}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-information', userInformation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

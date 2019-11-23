@@ -7,6 +7,20 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "paymentInformation": "Payment Information",
+        "userInformation": "User Information",
+        "tasker": "Tasker",
+        "master": "Master",
+        "statistic": "Statistic",
+        "task": "Task",
+        "schedule": "Schedule",
+        "plan": "Plan",
+        "taskCategory": "Task Category",
+        "city": "City",
+        "district": "District",
+        "address": "Address",
+        "notification": "Notification",
+        "review": "Review",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="taskUniteApp.task.home.title">Tasks</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-task" [routerLink]="['/task/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="taskUniteApp.task.home.createLabel">
+            Create a new Task
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="tasks?.length === 0">
+        <span jhiTranslate="taskUniteApp.task.home.notFound">No tasks found</span>
+    </div>
+    <div class="table-responsive" *ngIf="tasks?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="description"><span jhiTranslate="taskUniteApp.task.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="price"><span jhiTranslate="taskUniteApp.task.price">Price</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="status"><span jhiTranslate="taskUniteApp.task.status">Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdAt"><span jhiTranslate="taskUniteApp.task.createdAt">Created At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="updatedAt"><span jhiTranslate="taskUniteApp.task.updatedAt">Updated At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="deletedAt"><span jhiTranslate="taskUniteApp.task.deletedAt">Deleted At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="taskerId"><span jhiTranslate="taskUniteApp.task.tasker">Tasker</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="masterId"><span jhiTranslate="taskUniteApp.task.master">Master</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let task of tasks ;trackBy: trackId">
+                <td><a [routerLink]="['/task', task.id, 'view' ]">{{task.id}}</a></td>
+                <td>{{task.description}}</td>
+                <td>{{task.price}}</td>
+                <td>{{task.status}}</td>
+                <td>{{task.createdAt | date:'mediumDate'}}</td>
+                <td>{{task.updatedAt | date:'mediumDate'}}</td>
+                <td>{{task.deletedAt | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="task.taskerId">
+                        <a [routerLink]="['/tasker', task.taskerId , 'view' ]" >{{task.taskerId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="task.masterId">
+                        <a [routerLink]="['/master', task.masterId , 'view' ]" >{{task.masterId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/task', task.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/task', task.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(task)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="tasks?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

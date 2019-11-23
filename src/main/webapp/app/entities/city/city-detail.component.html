@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="city">
+            <h2><span jhiTranslate="taskUniteApp.city.detail.title">City</span> {{city.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="taskUniteApp.city.name">Name</span></dt>
+                <dd>
+                    <span>{{city.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.city.status">Status</span></dt>
+                <dd>
+                    <span>{{city.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.city.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{city.createdAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.city.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{city.updatedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.city.deletedAt">Deleted At</span></dt>
+                <dd>
+                    <span>{{city.deletedAt}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/city', city.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+{
+    "name": "UserInformation",
+    "fields": [
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "createdAt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "updatedAt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "deletedAt",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "info",
+            "relationshipName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "review",
+            "otherEntityRelationshipName": "user",
+            "relationshipName": "reviews"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "notification",
+            "otherEntityRelationshipName": "user",
+            "relationshipName": "notifications"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "tasker",
+            "otherEntityRelationshipName": "user",
+            "relationshipName": "tasker",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "master",
+            "otherEntityRelationshipName": "user",
+            "relationshipName": "master",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "address",
+            "otherEntityRelationshipName": "user",
+            "relationshipName": "address",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "statistic",
+            "otherEntityRelationshipName": "user",
+            "relationshipName": "statistic",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191123105020",
+    "entityTableName": "user_information",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

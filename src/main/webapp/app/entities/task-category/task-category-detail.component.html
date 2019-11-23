@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="taskCategory">
+            <h2><span jhiTranslate="taskUniteApp.taskCategory.detail.title">Task Category</span> {{taskCategory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="taskUniteApp.taskCategory.name">Name</span></dt>
+                <dd>
+                    <span>{{taskCategory.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.taskCategory.description">Description</span></dt>
+                <dd>
+                    <span>{{taskCategory.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.taskCategory.image">Image</span></dt>
+                <dd>
+                    <span>{{taskCategory.image}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.taskCategory.minPrice">Min Price</span></dt>
+                <dd>
+                    <span>{{taskCategory.minPrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.taskCategory.status">Status</span></dt>
+                <dd>
+                    <span>{{taskCategory.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.taskCategory.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{taskCategory.createdAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.taskCategory.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{taskCategory.updatedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.taskCategory.deletedAt">Deleted At</span></dt>
+                <dd>
+                    <span>{{taskCategory.deletedAt}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/task-category', taskCategory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

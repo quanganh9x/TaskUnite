@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="statistic">
+            <h2><span jhiTranslate="taskUniteApp.statistic.detail.title">Statistic</span> {{statistic.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="taskUniteApp.statistic.level">Level</span></dt>
+                <dd>
+                    <span>{{statistic.level}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.statistic.experience">Experience</span></dt>
+                <dd>
+                    <span>{{statistic.experience}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.statistic.completedTask">Completed Task</span></dt>
+                <dd>
+                    <span>{{statistic.completedTask}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.statistic.incompletedTask">Incompleted Task</span></dt>
+                <dd>
+                    <span>{{statistic.incompletedTask}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.statistic.rating">Rating</span></dt>
+                <dd>
+                    <span>{{statistic.rating}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.statistic.ranking">Ranking</span></dt>
+                <dd>
+                    <span>{{statistic.ranking}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.statistic.bonus">Bonus</span></dt>
+                <dd>
+                    <span>{{statistic.bonus}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.statistic.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{statistic.createdAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.statistic.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{statistic.updatedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.statistic.deletedAt">Deleted At</span></dt>
+                <dd>
+                    <span>{{statistic.deletedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.statistic.user">User</span></dt>
+                <dd>
+                    <div *ngIf="statistic.userId">
+                        <a [routerLink]="['/user-information', statistic.userId, 'view']">{{statistic.userId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/statistic', statistic.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

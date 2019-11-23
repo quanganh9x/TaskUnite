@@ -1,0 +1,31 @@
+{
+  "taskUniteApp": {
+    "tasker": {
+      "home": {
+        "title": "Taskers",
+        "createLabel": "Create a new Tasker",
+        "createOrEditLabel": "Create or edit a Tasker",
+        "notFound": "No Taskers found"
+      },
+      "created": "A new Tasker is created with identifier {{ param }}",
+      "updated": "A Tasker is updated with identifier {{ param }}",
+      "deleted": "A Tasker is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tasker {{ id }}?"
+      },
+      "detail": {
+        "title": "Tasker"
+      },
+      "price": "Price",
+      "status": "Status",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At",
+      "user": "User",
+      "schedule": "Schedule",
+      "workingAddresses": "Working Addresses",
+      "tasks": "Tasks",
+      "taskCategories": "Task Categories"
+    }
+  }
+}

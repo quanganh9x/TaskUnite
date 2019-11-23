@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Task.
+    -->
+    <changeSet id="20191123105024-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="task_id"
+                                 baseTableName="task_task_categories"
+                                 constraintName="fk_task_task_categories_task_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="task"/>
+
+        <addForeignKeyConstraint baseColumnNames="task_categories_id"
+                                 baseTableName="task_task_categories"
+                                 constraintName="fk_task_task_categories_task_categories_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="task_category"/>
+        
+        <addForeignKeyConstraint baseColumnNames="tasker_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_tasker_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tasker"/>
+
+        <addForeignKeyConstraint baseColumnNames="master_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_master_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="master"/>
+
+    </changeSet>
+</databaseChangeLog>

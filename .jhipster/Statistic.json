@@ -1,0 +1,65 @@
+{
+    "name": "Statistic",
+    "fields": [
+        {
+            "fieldName": "level",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "experience",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "completedTask",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "incompletedTask",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "rating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ranking",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "bonus",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "createdAt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "updatedAt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "deletedAt",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "userInformation",
+            "otherEntityRelationshipName": "statistic",
+            "relationshipName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191123105023",
+    "entityTableName": "statistic",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

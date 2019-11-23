@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="task">
+            <h2><span jhiTranslate="taskUniteApp.task.detail.title">Task</span> {{task.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="taskUniteApp.task.description">Description</span></dt>
+                <dd>
+                    <span>{{task.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.task.price">Price</span></dt>
+                <dd>
+                    <span>{{task.price}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.task.status">Status</span></dt>
+                <dd>
+                    <span>{{task.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.task.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{task.createdAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.task.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{task.updatedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.task.deletedAt">Deleted At</span></dt>
+                <dd>
+                    <span>{{task.deletedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.task.taskCategories">Task Categories</span></dt>
+                <dd>
+                    <span *ngFor="let taskCategories of task.taskCategories; let last = last">
+                        <a [routerLink]="['/task-category', taskCategories?.id, 'view' ]">{{taskCategories.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.task.tasker">Tasker</span></dt>
+                <dd>
+                    <div *ngIf="task.taskerId">
+                        <a [routerLink]="['/tasker', task.taskerId, 'view']">{{task.taskerId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.task.master">Master</span></dt>
+                <dd>
+                    <div *ngIf="task.masterId">
+                        <a [routerLink]="['/master', task.masterId, 'view']">{{task.masterId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/task', task.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

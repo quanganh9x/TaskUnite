@@ -1,0 +1,71 @@
+{
+    "name": "Tasker",
+    "fields": [
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "createdAt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "updatedAt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "deletedAt",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "userInformation",
+            "otherEntityRelationshipName": "tasker",
+            "relationshipName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "schedule",
+            "otherEntityRelationshipName": "tasker",
+            "relationshipName": "schedule"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "address",
+            "otherEntityRelationshipName": "tasker",
+            "relationshipName": "workingAddresses"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "task",
+            "otherEntityRelationshipName": "tasker",
+            "relationshipName": "tasks"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "taskCategory",
+            "otherEntityRelationshipName": "taskers",
+            "relationshipName": "taskCategories",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191123105021",
+    "entityTableName": "tasker",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

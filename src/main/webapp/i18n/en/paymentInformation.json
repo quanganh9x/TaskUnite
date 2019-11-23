@@ -1,0 +1,26 @@
+{
+  "taskUniteApp": {
+    "paymentInformation": {
+      "home": {
+        "title": "Payment Informations",
+        "createLabel": "Create a new Payment Information",
+        "createOrEditLabel": "Create or edit a Payment Information",
+        "notFound": "No Payment Informations found"
+      },
+      "created": "A new Payment Information is created with identifier {{ param }}",
+      "updated": "A Payment Information is updated with identifier {{ param }}",
+      "deleted": "A Payment Information is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment Information {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Information"
+      },
+      "balance": "Balance",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At",
+      "user": "User"
+    }
+  }
+}

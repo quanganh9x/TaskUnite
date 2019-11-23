@@ -1,0 +1,27 @@
+{
+  "taskUniteApp": {
+    "master": {
+      "home": {
+        "title": "Masters",
+        "createLabel": "Thêm mới một Master",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Master",
+        "notFound": "No Masters found"
+      },
+      "created": "Một Master mới được tạo với định danh {{ param }}",
+      "updated": "Một Master cập nhật với định danh {{ param }}",
+      "deleted": "Một Master đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Master {{ id }}?"
+      },
+      "detail": {
+        "title": "Master"
+      },
+      "status": "Status",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At",
+      "user": "User",
+      "tasks": "Tasks"
+    }
+  }
+}

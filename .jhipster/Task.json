@@ -1,0 +1,75 @@
+{
+    "name": "Task",
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "createdAt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "updatedAt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "deletedAt",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "plan",
+            "otherEntityRelationshipName": "task",
+            "relationshipName": "plan"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "review",
+            "otherEntityRelationshipName": "task",
+            "relationshipName": "reviews"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "taskCategory",
+            "otherEntityRelationshipName": "tasks",
+            "relationshipName": "taskCategories",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tasker",
+            "otherEntityRelationshipName": "tasks",
+            "relationshipName": "tasker",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "master",
+            "otherEntityRelationshipName": "tasks",
+            "relationshipName": "master",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191123105024",
+    "entityTableName": "task",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

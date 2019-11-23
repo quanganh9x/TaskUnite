@@ -1,0 +1,27 @@
+{
+  "taskUniteApp": {
+    "master": {
+      "home": {
+        "title": "Masters",
+        "createLabel": "Create a new Master",
+        "createOrEditLabel": "Create or edit a Master",
+        "notFound": "No Masters found"
+      },
+      "created": "A new Master is created with identifier {{ param }}",
+      "updated": "A Master is updated with identifier {{ param }}",
+      "deleted": "A Master is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Master {{ id }}?"
+      },
+      "detail": {
+        "title": "Master"
+      },
+      "status": "Status",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At",
+      "user": "User",
+      "tasks": "Tasks"
+    }
+  }
+}

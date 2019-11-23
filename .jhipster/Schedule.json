@@ -1,0 +1,36 @@
+{
+    "name": "Schedule",
+    "fields": [
+        {
+            "fieldName": "from",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "to",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "duration",
+            "fieldType": "Duration"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tasker",
+            "otherEntityRelationshipName": "schedule",
+            "relationshipName": "tasker",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191123105025",
+    "entityTableName": "schedule",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

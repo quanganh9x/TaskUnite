@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="review">
+            <h2><span jhiTranslate="taskUniteApp.review.detail.title">Review</span> {{review.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="taskUniteApp.review.content">Content</span></dt>
+                <dd>
+                    <span>{{review.content}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.review.point">Point</span></dt>
+                <dd>
+                    <span>{{review.point}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.review.status">Status</span></dt>
+                <dd>
+                    <span>{{review.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.review.createdAt">Created At</span></dt>
+                <dd>
+                    <span>{{review.createdAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.review.updatedAt">Updated At</span></dt>
+                <dd>
+                    <span>{{review.updatedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.review.deletedAt">Deleted At</span></dt>
+                <dd>
+                    <span>{{review.deletedAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.review.task">Task</span></dt>
+                <dd>
+                    <div *ngIf="review.taskId">
+                        <a [routerLink]="['/task', review.taskId, 'view']">{{review.taskId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="taskUniteApp.review.user">User</span></dt>
+                <dd>
+                    <div *ngIf="review.userId">
+                        <a [routerLink]="['/user-information', review.userId, 'view']">{{review.userId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/review', review.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

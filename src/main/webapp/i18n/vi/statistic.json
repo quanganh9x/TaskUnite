@@ -1,0 +1,32 @@
+{
+  "taskUniteApp": {
+    "statistic": {
+      "home": {
+        "title": "Statistics",
+        "createLabel": "Thêm mới một Statistic",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Statistic",
+        "notFound": "No Statistics found"
+      },
+      "created": "Một Statistic mới được tạo với định danh {{ param }}",
+      "updated": "Một Statistic cập nhật với định danh {{ param }}",
+      "deleted": "Một Statistic đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Statistic {{ id }}?"
+      },
+      "detail": {
+        "title": "Statistic"
+      },
+      "level": "Level",
+      "experience": "Experience",
+      "completedTask": "Completed Task",
+      "incompletedTask": "Incompleted Task",
+      "rating": "Rating",
+      "ranking": "Ranking",
+      "bonus": "Bonus",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At",
+      "user": "User"
+    }
+  }
+}
